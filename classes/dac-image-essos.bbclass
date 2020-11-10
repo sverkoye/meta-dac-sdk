@@ -6,10 +6,6 @@ DISTRO_FEATURES_append = "libglvnd-as-stubs-provider"
 
 IMAGE_INSTALL_append = " libglvnd"
 
-OCI_IMAGE_ENV_VARS = "\
-  WAYLAND_DISPLAY=wayland-0 \
-  WAYLAND_DEBUG=0 \
-"
 cleanup_hw_dependent_libs () {
     rm -rf ${IMAGE_ROOTFS}/usr/lib/libEGL*
     rm -rf ${IMAGE_ROOTFS}/usr/lib/libGLES*
