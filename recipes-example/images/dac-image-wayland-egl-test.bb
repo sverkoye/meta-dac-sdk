@@ -6,6 +6,7 @@ IMAGE_INSTALL = "wayland-egl-test"
 
 # needed
 OCI_IMAGE_ENTRYPOINT = "/usr/bin/wayland-egl-test"
+APP_METADATA_PATH = "metadatas/wayland-egl-appmetadata.json"
 
 # optional
 OCI_IMAGE_AUTHOR = "LGi"

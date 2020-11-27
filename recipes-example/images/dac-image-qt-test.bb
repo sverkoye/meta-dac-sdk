@@ -6,6 +6,7 @@ IMAGE_INSTALL = "qt-egl-test"
 
 # needed
 OCI_IMAGE_ENTRYPOINT = "/usr/bin/qt-egl-test"
+APP_METADATA_PATH = "metadatas/qt-appmetadata.json"
 
 # optional
 OCI_IMAGE_AUTHOR = "LGi"
