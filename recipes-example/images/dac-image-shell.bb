@@ -6,6 +6,8 @@ IMAGE_INSTALL_append = " libgcc"
 
 # needed
 OCI_IMAGE_ENTRYPOINT = "/bin/sh"
+APP_METADATA_PATH = "metadatas/shell-appmetadata.json"
+
 
 # optional
 OCI_IMAGE_AUTHOR = "LGi"
