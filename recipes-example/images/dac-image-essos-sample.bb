@@ -6,6 +6,7 @@ IMAGE_INSTALL = "essos-test"
 
 # needed
 OCI_IMAGE_ENTRYPOINT = "/usr/bin/essos-sample"
+APP_METADATA_PATH = "metadatas/essos-appmetadata.json"
 
 # optional
 OCI_IMAGE_AUTHOR = "LGi"

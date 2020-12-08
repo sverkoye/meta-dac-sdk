@@ -15,7 +15,24 @@ IMAGE_INSTALL_append = " dash"
 IMAGE_LINGUAS = " "
 LICENSE = "MIT"
 
+APP_METADATA_PATH = " "
+
 IMAGE_CMD_oci_append() {
     file_name="${IMAGE_NAME}${IMAGE_NAME_SUFFIX}-oci-${OCI_IMAGE_TAG}-${OCI_IMAGE_ARCH}${OCI_IMAGE_SUBARCH:+"-$OCI_IMAGE_SUBARCH"}-linux.oci-image.tar"
     ln -fs ${file_name} ${IMAGE_BASENAME}.tar
 }
+
+do_rootfs_append() {
+    from os import path, system
+
+    images_path = str(d.getVar('THISDIR'))
+    appmetadata_path = path.join(images_path, str(d.getVar('APP_METADATA_PATH')))
+
+    if not path.isfile(appmetadata_path):
+        bb.error(f"Cannot file metadata file at location '{appmetadata_path}', please make sure that 'APP_METADATA_PATH' variable is properly set")
+        sys.exit(1)
+    else:
+        desired_path = path.abspath(path.join(str(d.getVar('D')), "..", "rootfs", "appmetadata.json"))
+        system(f"cp {appmetadata_path} {desired_path}")
+}
+
