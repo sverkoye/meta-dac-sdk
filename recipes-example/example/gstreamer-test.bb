@@ -9,7 +9,7 @@ DEPENDS = "gstreamer1.0"
 inherit pkgconfig
 
 SRC_URI = " \
-    git://github.com/ZbyszekK/player.git;protocol=http;branch=master;rev=7c8ddcfe4960ec5d94a1c779fdd824ffab6c01c9 \
+    git://github.com/ZbyszekK/player.git;protocol=http;branch=master;rev=2c03e67b528ef75835acd484c53ab2eac066ec38 \
 "
 
 S = "${WORKDIR}/git/"
