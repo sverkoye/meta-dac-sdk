@@ -4,12 +4,12 @@ LICENSE = "CLOSED"
 
 DEPENDS = "virtual/libgles2 virtual/libsdl2"
 
-SRC_DAC_EXAMPLES = "home/maricnh/workspace/dac-examples-src"
-
-S = "${WORKDIR}/${SRC_DAC_EXAMPLES}/sdl-test/"
+S = "${WORKDIR}/git/sdl-test"
 
 SRC_URI = " \
-    file:///${SRC_DAC_EXAMPLES}"
+    git://github.com/MarcinHajkowski/dac-examples-src.git;protocol=http;branch=master;rev=11c4ad3649e830886babbd0d6e0836e8a3c36e76 \
+"
+
 
 inherit autotools pkgconfig
 
