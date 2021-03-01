@@ -7,7 +7,7 @@ DEPENDS = "virtual/libgles2 virtual/libsdl2"
 S = "${WORKDIR}/git/sdl-test"
 
 SRC_URI = " \
-    git://github.com/MarcinHajkowski/dac-examples-src.git;protocol=http;branch=master;rev=11c4ad3649e830886babbd0d6e0836e8a3c36e76 \
+    git://github.com/stagingrdkm/dac-examples-src.git;protocol=http;branch=master;rev=8fa977d7b3e6a2d6e5a08c3120e637f915b3ad80 \
 "
 
 
