@@ -2,7 +2,6 @@ SUMMARY = "Base class for DAC Images"
 
 PACKAGE_CLASSES = "package_ipk"
 IMAGE_FSTYPES = "container oci"
-COMPATIBLE_MACHINE = "raspberrypi3"
 
 inherit image
 inherit image-oci
