@@ -7,6 +7,8 @@ COMPATIBLE_MACHINE = "raspberrypi3"
 inherit image
 inherit image-oci
 
+PREFERRED_PROVIDER_virtual/kernel = "linux-dummy"
+
 IMAGE_INSTALL = " "
 IMAGE_INSTALL_append = " glibc"
 IMAGE_INSTALL_append = " ldconfig"
