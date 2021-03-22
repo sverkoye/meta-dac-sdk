@@ -1,26 +1,18 @@
 # meta-dac
 
-		git clone -b dunfell git://git.yoctoproject.org/poky.git dunfell
+		# On CentOS-7 switch default gcc to 7.x from https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
+		[ -f /opt/rh/devtoolset-7/enable ] && source /opt/rh/devtoolset-7/enable
 
-		cd dunfell
-		git clone -b dunfell git://git.yoctoproject.org/meta-raspberrypi
-		git clone -b dunfell git://git.yoctoproject.org/meta-virtualization
-		git clone -b dunfell git://git.openembedded.org/meta-openembedded
-		git clone -b dunfell https://github.com/meta-qt5/meta-qt5.git
-		git clone https://github.com/stagingrdkm/meta-dac-sdk.git
+		# Create build directory
+		mkdir build; cd build
 
-		source oe-init-build-env
+		# Install 'repo' tool from: https://android.googlesource.com/tools/repo
+		repo init -u https://github.com/stagingrdkm/lgpub/ -m manifests/dac-dunfell-3.1.6-manifest.xml
+		repo sync -v
+		. ./oe-init-build-env
+		cp ../.repo/manifests/manifests/bblayers.conf conf/
 
-		bitbake-layers add-layer ../meta-openembedded/meta-oe
-		bitbake-layers add-layer ../meta-openembedded/meta-python
-		bitbake-layers add-layer ../meta-openembedded/meta-filesystems
-		bitbake-layers add-layer ../meta-openembedded/meta-networking
-		bitbake-layers add-layer ../meta-raspberrypi
-		bitbake-layers add-layer ../meta-dac-sdk
-		bitbake-layers add-layer ../meta-virtualization
-		bitbake-layers add-layer ../meta-qt5
-
-		echo 'MACHINE="raspberrypi3"' >> conf/local.conf
+		echo 'MACHINE="raspberrypi4"' >> conf/local.conf
 
 		# Test OCI images
 		bitbake dac-image-wayland-egl-test
@@ -29,4 +21,6 @@
 		bitbake dac-image-essos-egl
 		bitbake dac-image-qt-test
 		bitbake dac-image-shell
-
+		
+		# Or build them all at once
+		bitbake dac-image-wayland-egl-test dac-image-wayland-egl-test-input dac-image-essos-sample dac-image-essos-egl dac-image-qt-test dac-image-shell
