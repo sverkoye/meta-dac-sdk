@@ -12,7 +12,13 @@
 		. ./oe-init-build-env
 		cp ../.repo/manifests/manifests/bblayers.conf conf/
 
-		echo 'MACHINE="raspberrypi4"' >> conf/local.conf
+                # Select one of the target platform
+                # for ARMv7
+		echo 'MACHINE = "raspberrypi4"' >> conf/local.conf
+		# for x86_64
+		echo 'MACHINE = "qemux86-64""' >> conf/local.conf
+		
+                echo 'PREFERRED_PROVIDER_virtual/wpebackend = "wpebackend-rdk"' >> conf/local.conf
 
 		# Test OCI images
 		bitbake dac-image-wayland-egl-test
