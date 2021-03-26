@@ -1,4 +1,4 @@
-SUMMARY = "wpewebkit in OCI Container"
+SUMMARY = "cog in OCI Container"
 
 IMAGE_FSTYPES = "container oci"
 
