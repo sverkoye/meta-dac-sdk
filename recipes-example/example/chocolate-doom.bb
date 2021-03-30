@@ -1,7 +1,7 @@
 
 SUMMARY = "Chocolate Doom game"
 DESCRIPTION = "Chocolate Doom game which is port of DOS game Doom"
-LICENSE = "GPL"
+LICENSE = "GPL-2.0+"
 LIC_FILES_CHKSUM = "file://COPYING.md;md5=60d644347832d2dd9534761f6919e2a6"
 
 DEPENDS = "virtual/libsdl2 libsdl2-mixer libsdl2-net pkgconfig"
