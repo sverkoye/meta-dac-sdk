@@ -2,10 +2,6 @@ SUMMARY = "Base class for DAC Images with essos egl support"
 
 inherit dac-image-base
 
-DISTRO_FEATURES_append = "libglvnd-as-stubs-provider"
-
-IMAGE_INSTALL_append = " libglvnd"
-
 cleanup_hw_dependent_libs () {
     rm -rf ${IMAGE_ROOTFS}/usr/lib/libEGL*
     rm -rf ${IMAGE_ROOTFS}/usr/lib/libGLES*

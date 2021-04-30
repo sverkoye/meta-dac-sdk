@@ -2,9 +2,6 @@ SUMMARY = "Base class for DAC Images with wayland egl support"
 
 inherit  dac-image-base
 
-DISTRO_FEATURES_append = "libglvnd-as-stubs-provider"
-
-IMAGE_INSTALL_append = " libglvnd"
 IMAGE_INSTALL_append = " wayland"
 
 cleanup_hw_dependent_libs () {
