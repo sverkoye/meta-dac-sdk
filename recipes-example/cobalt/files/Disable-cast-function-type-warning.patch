@@ -1,0 +1,22 @@
+Index: git/src/third_party/starboard/rdk/shared/player/player_internal.cc
+===================================================================
+--- git.orig/src/third_party/starboard/rdk/shared/player/player_internal.cc
++++ git/src/third_party/starboard/rdk/shared/player/player_internal.cc
+@@ -146,6 +146,8 @@ static GstStaticPadTemplate src_template
+ 
+ static void gst_cobalt_src_uri_handler_init(gpointer gIface,
+                                             gpointer ifaceData);
++
++#pragma GCC diagnostic ignored "-Wcast-function-type"
+ #define gst_cobalt_src_parent_class parent_class
+ G_DEFINE_TYPE_WITH_CODE(GstCobaltSrc,
+                         gst_cobalt_src,
+@@ -154,6 +156,8 @@ G_DEFINE_TYPE_WITH_CODE(GstCobaltSrc,
+                         G_IMPLEMENT_INTERFACE(GST_TYPE_URI_HANDLER,
+                                               gst_cobalt_src_uri_handler_init));
+ 
++#pragma GCC diagnostic warning "-Wcast-function-type"
++
+ static void gst_cobalt_src_init(GstCobaltSrc* src) {
+   GstCobaltSrcPrivate* priv = (GstCobaltSrcPrivate*)gst_cobalt_src_get_instance_private(src);
+   src->priv = priv;
