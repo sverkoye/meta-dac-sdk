@@ -12,6 +12,10 @@
         "persistent": [
             {
                 "size": "10M",
+                "path": "/home/root"
+            },
+            {
+                "size": "10M",
                 "path": "/opt/netflix"
             }
         ]
@@ -20,5 +24,15 @@
         "ram": "128M"
     },
     "features": [],
-    "mounts": []
+    "mounts": [
+        {
+            "source": "/opt/netflix-binfile.bin",
+            "destination": "/opt/netflix-binfile.bin",
+            "type": "bind",
+            "options": [
+                "rbind",
+                "ro"
+            ]
+        }
+    ]
 }

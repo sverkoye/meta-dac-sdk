@@ -11,11 +11,12 @@ Index: git/partner/dpi/gstreamer/PlaybackGroupNative.cpp
  #define VIDEO_DECODER_NAME "westerossink"
  #define TOO_FAR_AHEAD_THRESHOLD_SECONDS 20
  #define UHD_WITDH   3840
-@@ -304,7 +304,6 @@ PlaybackGroupNative::PlaybackGroupNative
+@@ -304,7 +304,7 @@ PlaybackGroupNative::PlaybackGroupNative
      Log::info(TRACE_MEDIACONTROL, "Enabling audio downmixing to stereo");
      g_object_set(mGstPipeline, "audio-filter", capsfilter, NULL);
    }
 -  mVideoSink = createWesterosSink();
++  mVideoSink = NULL; //createWesterosSink();
  #if defined(GST_GL)
    mVideoSinkGst.reset(new VideoSinkGStreamer());
    g_object_set(mGstPipeline, "video-sink", mVideoSinkGst->createVideoSink(), NULL);

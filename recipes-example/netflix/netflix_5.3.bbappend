@@ -14,6 +14,7 @@ SRC_URI += "file://0004-set-noverify.patch"
 SRC_URI += "file://0010-stat-reserved-s32-build-fix.patch"
 SRC_URI += "file://0005-missing-gstcaps.patch;patchdir=${WORKDIR}/git"
 SRC_URI += "file://0011-add-rialto.patch;patchdir=${WORKDIR}/git"
+# patch below is needed but restricted
 #SRC_URI += "file://0013-add-playready.patch;patchdir=${WORKDIR}/git"
 SRC_URI += "file://0020-remove-rdk-parts.patch;patchdir=${WORKDIR}/git"
 
@@ -48,12 +49,3 @@ do_install_append() {
     install -m 755 ${B}/src/platform/gibbon/netflix ${D}${NRD_INSTALL_PREFIX}/bin
 }
 ###
-
-### Netflix vault file
-## Dummy vault file, must be replaced with valid one
-SRC_URI += "file://netflix-binfile.bin"
-do_install_append() {
-    install -d ${D}/opt  
-    install -m644 ${WORKDIR}/netflix-binfile.bin ${D}/opt
-}
-FILES_${PN} += "opt/netflix-binfile.bin"
