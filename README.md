@@ -24,9 +24,6 @@
 	# To use mesa provider instead and not remove the gfx libraries:
 	#echo 'DISTRO_FEATURES_remove = "cleanup_gfx"' >> conf/local.conf
 
-	# Add the following to avoid: github.com[0: 140.82.121.4]: errno=Connection timed out
-	#echo 'BBMASK += "${TOPDIR}/../meta-rdk-video/recipes-extended/rdkservices/wpeframework-clientlibraries_git.bb"' >> conf/local.conf
-
 	# Test OCI images
 	bitbake dac-image-wayland-egl-test
 	bitbake dac-image-wayland-egl-test-input
@@ -35,25 +32,21 @@
 	bitbake dac-image-qt-test
 	bitbake dac-image-shell
 	bitbake dac-image-flutter-slide-puzzle
+	bitbake dac-image-chocolate-doom
+	bitbake dac-image-cobalt
 
 	# Or build them all at once
 	bitbake dac-image-wayland-egl-test dac-image-wayland-egl-test-input dac-image-essos-sample dac-image-essos-egl dac-image-qt-test dac-image-shell dac-image-flutter-slide-puzzle
 
 # Building Cobalt DAC app
 
-Cobalt DAC app needs rialto. This requires access to the avbus-poc repo. Extra setup steps:
->
-	git clone --branch master "https://code.rdkcentral.com/r/components/generic/avbus-poc"
-	cp avbus-poc/cobalt/libcobalt-21.lts.stable-6.patch meta-dac-sdk/recipes-example/cobalt/files/
+Use build target **dac-image-cobalt**.  By default cobalt evergreen is **not** enabled and libcobalt will be built and linked with cobalt-launcher. To enable cobalt evergreen lite make sure **cobalt_enable_evergreen_lite** DISTRO_FEATURE is set. See conf/layer.conf. In that case libloader-app will be built and linked to cobalt-launcher.
 
-Build:
->
-	bitbake dac-image-cobalt
+However, currently this does not work on RPI target hosts: cobalt DAC app built with evergreen enabled, crashes on RPI. See comments in libcobalt_23.lts.stable.bbappend.
 
 # Building Netflix DAC app
 
 Netflix DAC app needs several things in order to build:
-* rialto, this requires access to the avbus-poc repo
 * netflix source tarball
 * meta-rdk-netflix repo
 * playready headers from officially licensed playeady SDK
