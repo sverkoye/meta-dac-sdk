@@ -1,5 +1,5 @@
 # meta-dac-sdk
-  # Begin of [One time SDK Build environment setup on HOST] 
+  # One time SDK Build environment setup on HOST 
  	# make sure that your Linux host has required packages needed for Yocto. 
   	# These are defined in https://docs.yoctoproject.org/3.1.33/ref-manual/ref-system-requirements.html#required-packages-for-the-build-host
 	# On CentOS-7 switch default gcc to 7.x from https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
@@ -27,7 +27,8 @@
 	# Also libglvnd is used to provide egl/gles/mesa
 	# To use mesa provider instead and not remove the gfx libraries:
 	#echo 'DISTRO_FEATURES_remove = "cleanup_gfx"' >> conf/local.conf
-# End of [One time SDK Build environment setup on HOST]
+ 	# end of [One time SDK Build environment setup on HOST] 
+# Building your DAC application container image
 	#Above steps you only need to do the first time you setup the SDK. For subsequent uses, you only need to run the following command to configure the build environment:
  	# cd build
 	# . ./oe-init-build-env
