@@ -10,7 +10,7 @@
 
 	# Install 'repo' tool from: https://android.googlesource.com/tools/repo
  	# following repo commands will download Yocto poky environment and other required meta-layers see manifest of https://github.com/rdkcentral/meta-dac-sdk/blob/master/manifests/dac-dunfell-manifest.xml
-	repo init -u https://github.com/rdkcentral/meta-dac-sdk/ -m manifests/dac-dunfell-manifest.xml
+	repo init -u https://github.com/stagingrdkm/meta-dac-sdk/ -m manifests/dac-dunfell-manifest.xml
 	repo sync --no-clone-bundle -v -j$(getconf _NPROCESSORS_ONLN)
 
 	. ./oe-init-build-env
