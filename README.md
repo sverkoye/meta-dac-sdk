@@ -3,13 +3,14 @@
  	# make sure that your Linux host has required packages needed for Yocto. 
   	# These are defined in https://docs.yoctoproject.org/3.1.33/ref-manual/ref-system-requirements.html#required-packages-for-the-build-host
 	# On CentOS-7 switch default gcc to 7.x from https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
-	[ -f /opt/rh/devtoolset-7/enable ] && source /opt/rh/devtoolset-7/enable
+	#[ -f /opt/rh/devtoolset-7/enable ] && source /opt/rh/devtoolset-7/enable
 
 	# Create build directory
 	mkdir build; cd build
 
 	# Install 'repo' tool from: https://android.googlesource.com/tools/repo
-	repo init -u https://github.com/stagingrdkm/meta-dac-sdk/ -m manifests/dac-dunfell-manifest.xml
+ 	# following repo commands will download Yocto poky environment and other required meta-layers see manifest of https://github.com/rdkcentral/meta-dac-sdk/blob/master/manifests/dac-dunfell-manifest.xml
+	repo init -u https://github.com/rdkcentral/meta-dac-sdk/ -m manifests/dac-dunfell-manifest.xml
 	repo sync --no-clone-bundle -v -j$(getconf _NPROCESSORS_ONLN)
 
 	. ./oe-init-build-env
